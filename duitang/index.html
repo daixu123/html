@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.0.js"></script>
+    <style>
+        *{  margin: 0;  padding: 0;  text-decoration: none;  list-style-type: none;  }
+        body{
+            font-family: tahoma,arial,sans-serif;
+            font-size: 12px;
+        }
+        @media screen and (min-width: 1262px){
+            .wrap{
+                width: 1200px;
+            }
+        }
+        @media screen and (max-width: 1261px){
+            .wrap{
+                width: 962px;
+            }
+            .search>form{
+            width: 208px!important;
+            }
+            .search input{
+            width: 208px!important;
+            }
+        }
+
+/*                               header部分                      */
+        .header{
+            width: 100%;
+            height: 65px;
+            position: fixed;
+            border-bottom: 1px solid #d4d5d6;
+            top: 0;
+            z-index: 9999;
+            background-color: white;
+        }
+        .header-wrap{
+            height: 100%;
+            margin: 0 auto;
+        }
+        .headerLogo{
+            float: left;
+            background: url("img/duitanglogo.png") 0 12px no-repeat;
+            width: 80px;
+            height: 64px;
+            display: inline-block;
+            text-decoration: none;
+            text-indent:-9999px;
+        }
+        .classification{
+            float: left;
+            margin-left: 22px;
+            margin-top: 18px;
+        }
+        .nav-btn-cover{
+            width: 68px;
+            height: 26px;
+            border: 1px solid rgba(0,0,0,0.12);
+
+            border-radius: 2px;
+            text-align: center;
+            line-height: 26px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+        .nav-btn-cover>i{
+            margin-left: 4px;
+        }
+        .chevron-down{
+            background: url(img/chevron-down.png);
+            background-position: 0 0;
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+        }
+
+        .search{
+            width: 25%;
+            float: left;
+            margin-left: 52px;
+            margin-top: 16px;
+        }
+        .search form{
+            position: relative;
+            display: block;
+            width: 364px;
+            height: 30px;
+        }
+        .search input{
+            width: 358px;
+            height: 27px;
+            padding: 3px 2px 0 4px;
+            margin: 0;
+
+        }
+        .search button{
+            position: absolute;
+            top:0;
+            right:0;
+            border: 0;
+            text-indent: -9999px;
+            cursor: pointer;
+            background: url(img/icon-search.png) no-repeat 6px 1px;
+            height: 30px;
+            width: 38px;
+            display: inline-block;
+        }
+        .has-menu{
+            cursor: pointer;
+            float: right;
+            width: 110px;
+        }
+        .phoneBox{
+            float: right;
+            height: 54px;
+            padding-top: 14px;
+            position: relative;
+        }
+        .phone-icon{
+            display: inline-block;
+            width: 11px;
+            height: 19px;
+            background: url(img/phone-icon.png);
+            position: relative;
+            top: 4px;
+        }
+        .for-phone{
+            color: #444;
+            font-size: 13px;
+            width: 36px;
+            height: 36px;
+            border-radius: 36px;
+            margin-right: 12px;
+        }
+        .phoneBox>.chevron-down{
+            margin-top: 14px;
+            margin-left: 1px;
+        }
+        .vline{
+            float: right;
+            width: 1px;
+            height: 24px;
+            margin-top: 20px;
+            background-color: #ebebeb;
+        }
+        .head-cat{
+            float: right;
+            margin-left: 25px;
+            margin-right: 25px;
+            font-size: 13px;
+            line-height: 64px;
+            color: #444;
+            text-align: center;
+        }
+       .btn{
+           color: #fff;
+           width: 52px;
+           height: 28px;
+           line-height: 28px;
+           background-color: #f46;
+           border-radius: 3px;
+           display: block;
+           vertical-align: middle;
+           margin-top: 18px;
+       }
+       .dreamer-a{
+           color: #444;
+       }
+        .dreamer{
+            background-color: #f46;
+            color: #fff;
+            padding: 0 3px 2px;
+            font-size: 10px;
+            line-height: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+/*                 content内容                */
+        .content{
+           margin-top: 66px;
+            width: 100%;
+        }
+        .content-wrap{
+            margin: 0 auto;
+        }
+        .carouselBox{
+            width: 710px;
+            height: 443px;
+                                           overflow: hidden;
+            position: relative;
+        }
+        .carousel{
+            position: absolute;
+            display: inline-block;
+            height: 443px;
+            width: 4800px;
+        }
+        .carousel-item{
+            float: left;
+        }
+        .carousel>.carousel-item:nth-of-type(1) a{
+            background-image: url("img/lunbo1.jpeg");
+        }
+        .carousel>.carousel-item:nth-of-type(2) a{
+            background-image: url("img/lunbo2.jpeg");
+        }
+        .carousel>.carousel-item:nth-of-type(3) a{
+            background-image: url("img/lunbo3.jpeg");
+        }
+        .carousel>.carousel-item:nth-of-type(4) a{
+            background-image: url("img/lunbo4.jpeg");
+        }
+        .carousel>.carousel-item:nth-of-type(5) a{
+            background-image: url("img/lunbo5.jpeg");
+        }
+        .carousel>.carousel-item:nth-of-type(6) a{
+            background-image: url("img/lunbo1.jpeg");
+        }
+        .carousel-img{
+            display: block;
+            width: 710px;
+            height: 443px;
+        }
+        .carousel-title{
+            display: none;
+        }
+        .carousel-action-left,.carousel-action-right{
+            position: absolute;
+            top: 0;
+            height: 712px;
+            width: 60px;
+            cursor: pointer;
+        }
+        .carousel-action-left{
+            /*display: none;*/
+            left: 0;
+        }
+        .carousel-action-right{
+            right: 0;
+        }
+
+        .carousel-action-left>i,.carousel-action-right>i{
+            position: absolute;
+            top: 196px;
+            width: 28px;
+            height: 40px;
+        }
+        .carousel-action-left>i{
+            background: url("img/wrapPic.png") -542px -243px no-repeat;
+            left: 8px;
+        }
+        .carousel-action-right>i{
+            background: url("img/wrapPic.png") -582px -243px no-repeat;
+            right: 8px;
+        }
+        .carousel-action-wrap{
+            position: absolute;
+            bottom: 95px;
+            left: 40px;
+        }
+        .carousel-action-mask{
+            width: 615px;
+            height: 64px;
+            padding-left: 17px;
+            top: 0;
+            position: absolute;
+            left: 0;
+            background-color: #000;
+            opacity: .45;
+            border-radius: 5px;
+        }
+        .carousel-action{
+            width: 615px;
+            height: 64px;
+            padding-left: 17px;
+            top: 0;
+            position: absolute;
+            line-height: 64px;
+            color: #fff;
+            font-size: 28px;
+        }
+           .carousel-stitle{
+               font-size: 14px;
+               height: 20px;
+               vertical-align: top;
+               margin-left: 5px;
+               margin-bottom: 5px;
+           }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header-wrap wrap">
+        <div class="header-left">
+            <a class="headerLogo" href="#">堆糖</a>
+            <div class="classification">
+                <div class="nav-btn-cover">
+                    分类
+                    <i class="chevron-down"></i>
+                </div>
+            </div>
+            <div class="search">
+                <form action="/search/">
+                    <input type="text" placeholder="搜索感兴趣的内容">
+                    <button type="submit">搜索</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="has-menu">
+                <div class="phoneBox">
+                    <span class="phone-icon"></span>
+                    <a class="for-phone">手机版</a>
+                    <i class="chevron-down"></i>
+                </div>
+            </div>
+            <div class="vline"></div>
+            <a class="headerLogin head-cat" href="#">登录</a>
+            <div class="vline"></div>
+            <a class="register btn head-cat" href="#">注册</a>
+            <div class="vline"></div>
+            <div class="head-cat">
+                <a href="#" class="dreamer-a">堆糖生活家</a>
+                <span class="dreamer">new</span>
+            </div>
+            <div class="vline"></div>
+
+        </div>
+
+    </div>
+</div>
+<div class="content">
+    <div class="content-wrap wrap">
+        <div class="content-top">
+           <div class="carouselBox">
+               <ul class="carousel">
+                   <li class="carousel-item">
+                       <a href="#" class="carousel-img"></a>
+                       <div class="carousel-title">
+                            <span class="carousel-lstitle">
+                                 作为学俄语的孩纸，怎么可以辜负俄罗斯美食
+                           </span>
+                       </div>
+                   </li>
+                   <li class="carousel-item">
+                       <a href="#" class="carousel-img"></a>
+                       <div class="carousel-title">
+                            <span class="carousel-lstitle">
+                                 单身独居女青年の租房布置攻略
+                           </span>
+                       </div>
+                   </li>
+                   <li class="carousel-item">
+                       <a href="#" class="carousel-img"></a>
+                       <div class="carousel-title">
+                            <span class="carousel-lstitle">
+                                 日常穿搭选择多，浪漫随性哪种更适合你？
+                           </span>
+                       </div>
+                   </li>
+                   <li class="carousel-item">
+                       <a href="#" class="carousel-img"></a>
+                       <div class="carousel-title">
+                            <span class="carousel-lstitle">
+                                 日常穿搭选择多，浪漫随性哪种更适合你？
+                           </span>
+                            <span class="carousel-stitle">
+                              by baozi
+                           </span>
+                       </div>
+                   </li>
+                   <li class="carousel-item">
+                       <a href="#" class="carousel-img"></a>
+                       <div class="carousel-title">
+                             <span class="carousel-lstitle">
+                                  风衣，我要跨越一个世纪来穿你
+                           </span>
+                           <span class="carousel-stitle">
+                               by 熊丸子
+                           </span>
+                       </div>
+                   </li>
+               </ul>
+               <div class="carousel-action-left">
+                   <i></i>
+               </div>
+               <div class="carousel-action-right">
+                   <i></i>
+               </div>
+               <div class="carousel-action-wrap">
+                   <div class="carousel-action-mask"></div>
+                   <div class="carousel-action">
+                       <div class="carousel-action-title">
+                           <!--<span class="carousel-lstitle">-->
+                                  <!--风衣，我要跨越一个世纪来穿你-->
+                           <!--</span>-->
+                           <!--<span class="carousel-stitle">-->
+                               <!--by 熊丸子-->
+                           <!--</span>-->
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var nowimg=0;
+    var $carousel=$(".carousel");
+    var lis=$(".carousel li");
+    var animateTime=700;
+    var setTimer=1200;
+    var timer=null;
+    $(".carousel li:first").clone().appendTo(".carousel")
+    function rightBtnfunc() {
+        if(!$carousel.is(":animated")){
+            if(nowimg<lis.length-1){
+                nowimg++
+                putong();
+            }else{
+                nowimg=0;
+                $carousel.animate({"left":lis.length*-100+"%"}, animateTime,function(){
+                    $carousel.css("left",0)
+                })
+            }
+//            $circle.eq(nowimg).addClass('cur').siblings().removeClass("cur")
+        }
+    }
+    function putong(){
+        $carousel.animate({"left":nowimg*-100+"%"}, animateTime);
+    }
+    timer=setInterval(rightBtnfunc,setTimer)
+</script>
+<!--<script type="text/javascript" src="js/lunbo.js"></script>-->
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.0.js"></script>
+</head>
+<body onload="loadPopup()">
+<script>
+    function get_cookie(Name) {
+        var search = Name + "="
+        var returnvalue = "";
+        if (document.cookie.length > 0) {
+            offset = document.cookie.indexOf(search)
+            if (offset != -1) {
+                // if cookie exists
+                offset += search.length
+                // set index of beginning of value
+                end = document.cookie.indexOf(";", offset);
+                // set index of end of cookie value
+                if (end == -1)
+                    end = document.cookie.length;
+                returnvalue=unescape(document.cookie.substring(offset, end))
+            }
+        }
+        return returnvalue;
+    }
+    function loadPopup(){
+        console.log(get_cookie("firstload"));
+        if (get_cookie("firstload")===""){
+            alert("This is the first time you run this program!");
+            document.cookie="firstload=true"
+        }
+    }
+</script>
+
+</body>
+</html>
+<!--<script>-->
+    <!--var url="http://www.duitang.com/napi/index/hot/?include_fields=top_comments%2Cis_root%2Csource_link%2Citem%2Cbuyable%2Croot_id%2Cstatus%2Clike_count%2Csender%2Calbum%2Clike_id%2Cfavorite_blog_id&limit=24&start=24&_=1475901354906"-->
+    <!--$.ajax({-->
+        <!--url: url,-->
+        <!--method: "get",-->
+        <!--dataType: "json",-->
+        <!--success: function(datas) {-->
+            <!--$.each(datas, function(i, data) {-->
+                <!--console.log(data)-->
+            <!--});-->
+
+        <!--},-->
+        <!--error : function() {-->
+            <!--alert('fail');-->
+        <!--}-->
+    <!--});-->
+<!--</script>-->
